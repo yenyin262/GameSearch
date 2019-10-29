@@ -2,14 +2,14 @@ import React from "react";
 import SearchBar from "./SearchBar";
 import twitchgame from "../apis/twitchgame";
 import ResultBox from "./ResultBox";
-import SideBar from "./SideBar";
 import NavBar from "./NavBar";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      gamesResult: []
+      gamesResult: [],
+      gameInfo: undefined
     };
   }
 
@@ -32,22 +32,22 @@ class App extends React.Component {
       <>
         <NavBar />
         <div
-          // className="ui container"
           style={{
-            display: "flex",
-            flexDirection: "row",
-            // marginRight: "0px",
-            // width: "723px",
+            // display: "flex",
+            // flexDirection: "row",
             marginLeft: "50px"
           }}
         >
-          <div style={{ width: "70%" }}>
-            <p style={{ marginTop: "20px", fontSize: "20px", width: "74%" }}>
+          <div>
+            <p style={{ marginTop: "20px", fontSize: "20px", width: "60%" }}>
               Search for your favorite games in the search box below. Click on
               their name to find out more information about them.
             </p>
-            <SearchBar onFormSubmit={this.onSearchSubmit} />
-            {this.state.gamesResult[0] && (
+            <SearchBar
+              onFormSubmit={this.onSearchSubmit}
+              gamesResult={this.state.gamesResult}
+            />
+            {/* {this.state.gamesResult[0] && (
               <p
                 style={{
                   fontSize: "16px",
@@ -58,14 +58,10 @@ class App extends React.Component {
               >
                 Games:
               </p>
-            )}
-            <ResultBox gamesResult={this.state.gamesResult} />
+            )} */}
           </div>
-          <div style={{ width: "30%" }}>
-            {this.state.gamesResult[0] && (
-              <SideBar game={this.state.gamesResult[0]} />
-            )}
-          </div>
+
+          <ResultBox gamesResult={this.state.gamesResult} />
         </div>
       </>
     );
