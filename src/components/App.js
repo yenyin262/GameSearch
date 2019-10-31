@@ -3,6 +3,7 @@ import SearchBar from "./SearchBar";
 import twitchgame from "../apis/twitchgame";
 import ResultBox from "./ResultBox";
 import NavBar from "./NavBar";
+import SideBar from "./SideBar";
 
 class App extends React.Component {
   constructor(props) {
@@ -31,37 +32,33 @@ class App extends React.Component {
     return (
       <>
         <NavBar />
+
         <div
           style={{
-            // display: "flex",
-            // flexDirection: "row",
-            marginLeft: "50px"
+            display: "flex",
+            paddingLeft: "50px"
           }}
         >
-          <div>
-            <p style={{ marginTop: "20px", fontSize: "20px", width: "60%" }}>
+          <div style={{ flex: "1 1 auto" }}>
+            <p style={{ marginTop: "20px", fontSize: "20px", width: "76%" }}>
               Search for your favorite games in the search box below. Click on
               their name to find out more information about them.
             </p>
-            <SearchBar
-              onFormSubmit={this.onSearchSubmit}
-              gamesResult={this.state.gamesResult}
-            />
-            {/* {this.state.gamesResult[0] && (
-              <p
-                style={{
-                  fontSize: "16px",
-                  fontWeight: "bold",
-                  marginTop: "10px",
-                  marginLeft: "29%"
-                }}
-              >
-                Games:
-              </p>
-            )} */}
-          </div>
+            <div style={{ width: "25%", margin: " 0 auto" }}>
+              <SearchBar
+                onFormSubmit={this.onSearchSubmit}
+                gamesResult={this.state.gamesResult}
+              />
 
-          <ResultBox gamesResult={this.state.gamesResult} />
+              <ResultBox
+                gamesResult={this.state.gamesResult}
+                onClick={game => this.setState({ gameInfo: game })}
+              />
+            </div>
+          </div>
+          {this.state.gameInfo !== undefined ? (
+            <SideBar game={this.state.gameInfo} />
+          ) : null}
         </div>
       </>
     );
