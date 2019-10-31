@@ -1,5 +1,5 @@
 import axios from "axios";
-import clientid from "./secret";
+import clientid from "./client";
 
 export default axios.create({
   baseURL: "https://api.twitch.tv/kraken/",
