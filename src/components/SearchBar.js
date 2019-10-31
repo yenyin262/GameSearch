@@ -15,7 +15,6 @@ class SearchBar extends Component {
   onFormSubmit = event => {
     event.preventDefault();
     this.props.onFormSubmit(this.state.searchGames);
-    //make sure to call callback  from parent component
   };
   render() {
     return (
@@ -25,9 +24,7 @@ class SearchBar extends Component {
             className="field"
             style={{
               display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              paddingLeft: "25%"
+              flexDirection: "column"
             }}
           >
             <label
@@ -43,7 +40,7 @@ class SearchBar extends Component {
               type="text"
               value={this.state.searchGames}
               onChange={this.onSearchInput}
-              style={{ width: "45%", height: "30px", padding: "5px" }}
+              style={{ height: "30px", padding: "5px" }}
             />
           </div>
         </form>
