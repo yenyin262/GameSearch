@@ -5,11 +5,9 @@ export default function SideBar({ game }) {
     <div
       style={{
         backgroundColor: "#d3d3d3",
+        padding: "15px",
         height: "100vh",
-        marginLeft: "50px",
-        paddingLeft: "30px",
-        paddingTop: " 10px",
-        overflowY: "scroll"
+        flex: "0 0 20%"
       }}
     >
       <p style={{ fontWeight: "bold", fontSize: "20px", textAlign: "center" }}>
@@ -18,7 +16,7 @@ export default function SideBar({ game }) {
       <img
         src={game.box.medium}
         alt={game.name}
-        style={{ marginLeft: "100px" }}
+        style={{ margin: "0 auto", display: "block" }}
       />
       <p style={{ marginTop: "16px", textAlign: "center", fontWeight: "bold" }}>
         {game.popularity} viewers{" "}
