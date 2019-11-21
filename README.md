@@ -18,6 +18,12 @@ You will also see any lint errors in the console.
 - yarn start 
 ```
 
+
+# GIF
+
+![Animated GIF-downsized_large (3)](https://user-images.githubusercontent.com/43800526/69378680-b9feca80-0c63-11ea-8ac4-12f775dec131.gif)
+
+
 ### Web Technologies
 
 - React 
